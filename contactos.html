@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tagus Garden Villas — Contactos</title>
+  <meta name="description" content="Entre em contacto com a equipa do Tagus Garden Villas — Esclareça dúvidas ou agende uma visita." />
+
+  <!-- fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- favicon -->
+  <link rel="icon" href="assets/logotipo.png" type="image/png">
+
+  <style>
+    :root {
+      --brand-gold-light:#E5C67C;
+      --brand-gold:#D4AF37;
+      --brand-gold-dark:#C6A347;
+    }
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+    }
+    h1,h2,h3 {
+      font-family: 'Playfair Display', serif;
+    }
+    .btn-gold{
+      background:linear-gradient(90deg,var(--brand-gold-light),var(--brand-gold),var(--brand-gold-dark));
+      color:#000;font-weight:600;transition:all .3s ease;box-shadow:0 0 6px rgba(212,175,55,.2)
+    }
+    .btn-gold:hover{filter:brightness(1.1);box-shadow:0 0 12px rgba(212,175,55,.4);transform:translateY(-1px)}
+    input, textarea {
+      background-color: #111;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+    }
+    input:focus, textarea:focus {
+      border-color: var(--brand-gold);
+      outline: none;
+    }
+  </style>
+</head>
+<body class="bg-black text-gray-100 antialiased">
+
+  <!-- HEADER -->
+  <header class="bg-black text-white w-full">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <!-- LOGO clicável -->
+      <a href="index.html" class="flex items-center gap-2 group">
+        <img src="assets/logotipo.png" alt="Tagus Garden Villas"
+             class="h-8 transition-transform duration-300 group-hover:scale-105">
+        <div class="leading-none">
+          <p class="text-sm font-semibold group-hover:text-[#d4af37] transition-colors duration-300">
+            Tagus Garden Villas
+          </p>
+          <p class="text-xs text-white/60 hidden sm:block">Luxury by Nature</p>
+        </div>
+      </a>
+
+      <!-- MENU DESKTOP -->
+      <nav class="hidden md:flex items-center ml-auto gap-6">
+        <a href="apresentacao.html" class="text-white/70 hover:text-white text-sm">Apresentação</a>
+        <a href="casa.html" class="text-white/70 hover:text-white text-sm">Casa</a>
+        <a href="ginasio.html" class="text-white/70 hover:text-white text-sm">Ginásio</a>
+        <a href="jardim.html" class="text-white/70 hover:text-white text-sm">Jardim</a>
+        <a href="praia.html" class="text-white/70 hover:text-white text-sm">Praia/Lago</a>
+        <a href="contactos.html"
+           class="text-black font-semibold px-4 py-2 rounded-sm text-sm bg-[#d4af37] brightness-110">
+          Contactos
+        </a>
+      </nav>
+
+      <!-- BOTÃO MOBILE -->
+      <button class="hamburger md:hidden p-2 text-white"
+              aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <span class="block w-7 h-0.5 my-1 bg-current"></span>
+        <span class="block w-7 h-0.5 my-1 bg-current"></span>
+        <span class="block w-7 h-0.5 my-1 bg-current"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- overlay mobile -->
+  <div id="drawer-overlay"
+       class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-200 md:hidden"></div>
+
+  <!-- drawer mobile -->
+  <div id="mobile-drawer"
+       class="fixed top-0 right-0 h-full w-72 bg-black text-white z-50 transform translate-x-full
+              transition-transform duration-200 md:hidden flex flex-col gap-1 py-6">
+    <div class="px-6 mb-4 flex items-center gap-2">
+      <img src="assets/logotipo.png" alt="Tagus Garden Villas" class="h-8">
+      <span class="text-sm text-white/70">Menu</span>
+    </div>
+    <a href="apresentacao.html" class="px-6 py-2 text-white/80 hover:bg-white/5">Apresentação</a>
+    <a href="casa.html" class="px-6 py-2 text-white/80 hover:bg-white/5">Casa</a>
+    <a href="ginasio.html" class="px-6 py-2 text-white/80 hover:bg-white/5">Ginásio</a>
+    <a href="jardim.html" class="px-6 py-2 text-white/80 hover:bg-white/5">Jardim</a>
+    <a href="praia.html" class="px-6 py-2 text-white/80 hover:bg-white/5">Praia/Lago</a>
+    <a href="contactos.html" class="px-6 py-2 text-white bg-white/5">Contactos</a>
+  </div>
+
+  <!-- CONTEÚDO -->
+  <main class="min-h-screen">
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-black py-16">
+      <div class="absolute inset-0 bg-[url('assets/page_20.jpg')] bg-cover bg-center opacity-10"></div>
+      <div class="relative max-w-6xl mx-auto px-6">
+        <p class="text-sm uppercase tracking-[0.25em] text-[#d4af37]/90 mb-3">Contactos</p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Entre em contacto connosco</h1>
+        <p class="text-gray-200 max-w-3xl">
+          A nossa equipa está disponível para esclarecer dúvidas, agendar visitas e fornecer mais informações sobre o empreendimento.
+        </p>
+      </div>
+    </section>
+
+    <!-- Bloco de contacto -->
+    <section class="max-w-6xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-10">
+      <!-- Formulário -->
+      <form class="space-y-5">
+        <div>
+          <label for="nome" class="block text-sm font-medium mb-2 text-gray-300">Nome</label>
+          <input type="text" id="nome" name="nome" placeholder="O seu nome" class="w-full rounded-md px-4 py-3">
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium mb-2 text-gray-300">Email</label>
+          <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" class="w-full rounded-md px-4 py-3">
+        </div>
+
+        <div>
+          <label for="mensagem" class="block text-sm font-medium mb-2 text-gray-300">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="5" placeholder="A sua mensagem" class="w-full rounded-md px-4 py-3"></textarea>
+        </div>
+
+        <button type="submit" class="btn-gold px-6 py-3 rounded-md">Enviar mensagem</button>
+      </form>
+
+      <!-- Informações -->
+      <div class="space-y-6">
+        <div>
+          <h2 class="text-3xl font-semibold mb-4">Visite-nos</h2>
+          <p class="text-gray-300">
+            Tagus Garden Villas<br>
+            Moita, Setúbal — Portugal
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-[#d4af37] mb-2">Email</h3>
+          <p class="text-gray-300">info@tagusgardenvillas.pt</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-[#d4af37] mb-2">Telefone</h3>
+          <p class="text-gray-300">+351 912 345 678</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-[#d4af37] mb-2">Horário</h3>
+          <p class="text-gray-300">Segunda a Sexta — 09h00 às 18h00</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center text-gray-400 border-t border-white/10">
+    <div class="max-w-2xl mx-auto">
+      <div class="mb-2">© <span id="year"></span> Tagus Garden Villas — Todos os direitos reservados.</div>
+      <div class="text-sm">www.tagusgardenvillas.pt</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- JS do drawer -->
+  <script>
+  (function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.querySelector('.hamburger');
+      const drawer = document.getElementById('mobile-drawer');
+      const overlay = document.getElementById('drawer-overlay');
+
+      if (!btn || !drawer) return;
+
+      function openDrawer() {
+        drawer.classList.remove('translate-x-full');
+        drawer.classList.add('translate-x-0');
+        if (overlay) {
+          overlay.classList.remove('opacity-0','pointer-events-none');
+          overlay.classList.add('opacity-100','pointer-events-auto');
+        }
+        btn.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeDrawer() {
+        drawer.classList.add('translate-x-full');
+        drawer.classList.remove('translate-x-0');
+        if (overlay) {
+          overlay.classList.add('opacity-0','pointer-events-none');
+          overlay.classList.remove('opacity-100','pointer-events-auto');
+        }
+        btn.setAttribute('aria-expanded', 'false');
+      }
+
+      btn.addEventListener('click', function () {
+        if (window.matchMedia('(min-width: 768px)').matches) return;
+        if (drawer.classList.contains('translate-x-full')) openDrawer();
+        else closeDrawer();
+      });
+
+      if (overlay) overlay.addEventListener('click', closeDrawer);
+      window.addEventListener('resize', function () {
+        if (window.matchMedia('(min-width: 768px)').matches) closeDrawer();
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

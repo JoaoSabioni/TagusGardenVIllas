@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tagus Garden Villas</title>
+  <meta name="description" content="Tagus Garden Villas — Luxury by Nature." />
+
+  <!-- fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- tailwind (versão CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- favicon -->
+  <link rel="icon" href="assets/logotipo.png" type="image/png">
+
+  <style>
+    :root {
+      --brand-gold-light:#E5C67C;
+      --brand-gold:#D4AF37;
+      --brand-gold-dark:#C6A347;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+    }
+
+    h1,h2,h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* efeito dourado metálico no logotipo */
+    .logo-efeito {
+      position: relative;
+      filter: brightness(1.05) contrast(1.1);
+      transition: transform .8s ease, filter .8s ease;
+    }
+    .logo-efeito:hover {
+      transform: scale(1.05);
+      filter: brightness(1.2) contrast(1.25);
+    }
+    .logo-efeito::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.4) 50%, transparent 100%);
+      opacity: 0;
+      transform: translateX(-100%);
+      transition: opacity .8s, transform .8s;
+    }
+    .logo-efeito:hover::after {
+      opacity: 1;
+      transform: translateX(100%);
+    }
+
+    /* botão dourado */
+    .btn-gold {
+      background: linear-gradient(90deg, var(--brand-gold-light), var(--brand-gold), var(--brand-gold-dark));
+      color: #000;
+      font-weight: 600;
+      transition: all .3s ease;
+      box-shadow: 0 0 6px rgba(212,175,55,.2);
+    }
+    .btn-gold:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 0 12px rgba(212,175,55,.4);
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+
+<body class="antialiased text-gray-100 bg-black">
+
+  <!-- HEADER -->
+  <header class="bg-black text-white w-full">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <!-- LOGO clicável -->
+      <a href="index.html" class="flex items-center gap-2 group">
+        <img src="assets/logotipo.png" alt="Tagus Garden Villas"
+             class="h-8 transition-transform duration-300 group-hover:scale-105">
+        <div class="leading-none">
+          <p class="text-sm font-semibold group-hover:text-[#d4af37] transition-colors duration-300">
+            Tagus Garden Villas
+          </p>
+          <p class="text-xs text-white/60 hidden sm:block">Luxury by Nature</p>
+        </div>
+      </a>
+
+      <!-- MENU DESKTOP -->
+      <nav class="hidden md:flex items-center ml-auto gap-6">
+        <a href="apresentacao.html" class="text-white/70 hover:text-white text-sm">Apresentação</a>
+        <a href="casa.html" class="text-white/70 hover:text-white text-sm">Casa</a>
+        <a href="ginasio.html" class="text-white/70 hover:text-white text-sm">Ginásio</a>
+        <a href="jardim.html" class="text-white/70 hover:text-white text-sm">Jardim</a>
+        <a href="praia.html" class="text-white/70 hover:text-white text-sm">Praia/Lago</a>
+        <a href="contactos.html"
+           class="bg-[#d4af37] text-black font-semibold px-4 py-2 rounded-sm text-sm hover:brightness-110">
+          Contactos
+        </a>
+      </nav>
+
+      <!-- BOTÃO MOBILE -->
+      <button class="hamburger md:hidden p-2 text-white"
+              aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <span class="block w-7 h-0.5 my-1 bg-current"></span>
+        <span class="block w-7 h-0.5 my-1 bg-current"></span>
+        <span class="block w-7 h-0.5 my-1 bg-current"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- overlay mobile -->
+  <div id="drawer-overlay"
+       class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-200 md:hidden"></div>
+
+  <!-- drawer mobile -->
+  <div id="mobile-drawer"
+       class="fixed top-0 right-0 h-full w-72 bg-black text-white z-50 transform translate-x-full
+              transition-transform duration-200 md:hidden flex flex-col gap-1 py-6">
+    <div class="px-6 mb-4 flex items-center gap-2">
+      <img src="assets/logotipo.png" alt="Tagus Garden Villas" class="h-8">
+      <span class="text-sm text-white/70">Menu</span>
+    </div>
+    <a href="apresentacao.html" class="px-6 py-2 text-white hover:bg-white/5">Apresentação</a>
+    <a href="casa.html" class="px-6 py-2 text-white/80 hover:bg-white/5">Casa</a>
+    <a href="ginasio.html" class="px-6 py-2 text-white/80 hover:bg-white/5">Ginásio</a>
+    <a href="jardim.html" class="px-6 py-2 text-white/80 hover:bg-white/5">Jardim</a>
+    <a href="praia.html" class="px-6 py-2 text-white/80 hover:bg-white/5">Praia/Lago</a>
+    <a href="contactos.html"
+       class="mt-4 mx-6 bg-[#d4af37] text-black text-center font-semibold py-2 rounded-sm">
+      Contactos
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section id="conteudo" class="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('assets/page_10.jpg');"></div>
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <div class="relative z-10 h-40 w-auto mb-6">
+      <img src="assets/logotipo.png" alt="Tagus Garden Villas Logotipo" class="h-40 w-auto mx-auto opacity-90 logo-efeito" />
+    </div>
+
+    <div class="relative z-10">
+      <h1 class="text-5xl md:text-7xl font-bold leading-tight text-white drop-shadow-lg">Luxury by Nature</h1>
+      <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-200">
+        Condomínio de villas de luxo com foco em conforto, sustentabilidade e eficiência.
+      </p>
+    </div>
+
+    <div class="relative z-10 mt-10 flex justify-center flex-wrap gap-3">
+      <a href="apresentacao.html" class="px-6 py-3 rounded-md bg-white text-black font-semibold hover:opacity-90">Apresentação</a>
+      <a href="casa.html" class="px-6 py-3 rounded-md border border-white/30 hover:bg-white/10">Casa</a>
+      <a href="ginasio.html" class="px-6 py-3 rounded-md border border-white/30 hover:bg-white/10">Ginásio</a>
+      <a href="jardim.html" class="px-6 py-3 rounded-md border border-white/30 hover:bg-white/10">Jardim</a>
+      <a href="praia.html" class="px-6 py-3 rounded-md border border-white/30 hover:bg-white/10">Praia/Lago</a>
+      <a href="contactos.html" class="px-6 py-3 rounded-md border border-white/30 hover:bg-white/10">Contactos</a>
+    </div>
+  </section>
+
+  <!-- BLOCO DE APRESENTAÇÃO -->
+  <section id="apresentacao" class="relative px-6 py-16 bg-black text-gray-100 border-t border-white/10">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-4xl font-bold mb-6">Apresentação do Projeto</h2>
+        <div class="space-y-4 text-gray-300">
+          <p>O <strong>Tagus Garden Villas</strong> é um empreendimento residencial de luxo na Moita,
+            desenhado para combinar conforto, elegância e sustentabilidade.</p>
+          <p>Em lote de 13.320 m², contempla 25 moradias independentes (~220 m²),
+            arquitetura contemporânea e integração harmoniosa com a natureza.</p>
+          <p>Aposta em materiais ecológicos, eficiência energética e gestão inteligente,
+            proporcionando uma experiência de vida moderna e consciente.</p>
+        </div>
+
+        <div class="mt-8">
+          <a href="apresentacao.html" class="btn-gold inline-flex items-center gap-2 px-6 py-3 rounded-md transition">
+            Explorar projeto completo
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="w-full">
+        <div class="relative rounded-2xl overflow-hidden border border-white/10">
+          <img src="assets/page_11.jpg" alt="Vista Tagus Garden Villas"
+               class="w-full h-[420px] object-cover">
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="p-6 rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm">
+        <h3 class="text-xl font-semibold mb-2 text-[var(--brand-gold)]">Localização</h3>
+        <p class="text-gray-200 text-sm">Moita (Setúbal), com excelentes acessos a Lisboa e zona ribeirinha do Tejo.</p>
+      </div>
+      <div class="p-6 rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm">
+        <h3 class="text-xl font-semibold mb-2 text-[var(--brand-gold)]">Arquitetura</h3>
+        <p class="text-gray-200 text-sm">Design moderno, linhas simples e integração com o ambiente natural.</p>
+      </div>
+      <div class="p-6 rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm">
+        <h3 class="text-xl font-semibold mb-2 text-[var(--brand-gold)]">Sustentabilidade</h3>
+        <p class="text-gray-200 text-sm">Soluções ecoeficientes e gestão inteligente de energia.</p>
+      </div>
+      <div class="p-6 rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm">
+        <h3 class="text-xl font-semibold mb-2 text-[var(--brand-gold)]">Conforto</h3>
+        <p class="text-gray-200 text-sm">Espaços amplos, luminosos e acabamentos premium para bem-estar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center text-gray-400 border-t border-white/10">
+    <div class="max-w-2xl mx-auto">
+      <div class="mb-2">© <span id="year"></span> Tagus Garden Villas — Todos os direitos reservados.</div>
+      <div class="text-sm">www.tagusgardenvillas.pt</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- JS do drawer -->
+  <script>
+  (function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.querySelector('.hamburger');
+      const drawer = document.getElementById('mobile-drawer');
+      const overlay = document.getElementById('drawer-overlay');
+
+      if (!btn || !drawer) return;
+
+      function openDrawer() {
+        drawer.classList.remove('translate-x-full');
+        drawer.classList.add('translate-x-0');
+        if (overlay) {
+          overlay.classList.remove('opacity-0','pointer-events-none');
+          overlay.classList.add('opacity-100','pointer-events-auto');
+        }
+        btn.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeDrawer() {
+        drawer.classList.add('translate-x-full');
+        drawer.classList.remove('translate-x-0');
+        if (overlay) {
+          overlay.classList.add('opacity-0','pointer-events-none');
+          overlay.classList.remove('opacity-100','pointer-events-auto');
+        }
+        btn.setAttribute('aria-expanded', 'false');
+      }
+
+      btn.addEventListener('click', function () {
+        if (window.matchMedia('(min-width: 768px)').matches) return;
+        if (drawer.classList.contains('translate-x-full')) openDrawer();
+        else closeDrawer();
+      });
+
+      if (overlay) overlay.addEventListener('click', closeDrawer);
+      window.addEventListener('resize', function () {
+        if (window.matchMedia('(min-width: 768px)').matches) closeDrawer();
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
