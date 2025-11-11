@@ -1,4 +1,3 @@
-// assets/email.js
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form');
   const statusEl = document.getElementById('form-status');
@@ -13,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
       statusEl.className = 'text-xs text-gray-400';
     }
 
-    // apanhar dados do formulário
     const data = Object.fromEntries(new FormData(form).entries());
 
     try {
