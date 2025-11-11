@@ -21,34 +21,32 @@
       --brand-gold:#D4AF37;
       --brand-gold-dark:#C6A347;
     }
-    body {
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
-    }
-    h1,h2,h3 {
-      font-family: 'Playfair Display', serif;
-    }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial; }
+    h1,h2,h3 { font-family: 'Playfair Display', serif; }
     .btn-gold{
       background:linear-gradient(90deg,var(--brand-gold-light),var(--brand-gold),var(--brand-gold-dark));
-      color:#000;font-weight:600;transition:all .3s ease;box-shadow:0 0 6px rgba(212,175,55,.2)
+      color:#000;font-weight:600;transition:all .3s ease;box-shadow:0 0 8px rgba(212,175,55,.3)
     }
-    .btn-gold:hover{filter:brightness(1.1);box-shadow:0 0 12px rgba(212,175,55,.4);transform:translateY(-1px)}
-    input, textarea {
-      background-color: #111;
-      border: 1px solid rgba(255,255,255,0.1);
+    .btn-gold:hover{filter:brightness(1.08);transform:translateY(-1px)}
+    .field{
+      background-color: rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.1);
       color: #fff;
     }
-    input:focus, textarea:focus {
+    .field:focus{
       border-color: var(--brand-gold);
       outline: none;
+      box-shadow: 0 0 0 3px rgba(212,175,55,.2);
     }
   </style>
 </head>
+
 <body class="bg-black text-gray-100 antialiased">
 
   <!-- HEADER -->
-  <header class="bg-black text-white w-full">
+  <header class="bg-black/80 backdrop-blur-sm text-white w-full sticky top-0 z-40">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-      <!-- LOGO clicável -->
+      <!-- LOGO -->
       <a href="index.html" class="flex items-center gap-2 group">
         <img src="assets/logotipo.png" alt="Tagus Garden Villas"
              class="h-8 transition-transform duration-300 group-hover:scale-105">
@@ -103,102 +101,105 @@
     <a href="contactos.html" class="px-6 py-2 text-white bg-white/5">Contactos</a>
   </div>
 
-  <!-- CONTEÚDO -->
-  <main class="min-h-screen">
-    <!-- Hero -->
-    <section class="relative overflow-hidden bg-black py-16">
-      <div class="absolute inset-0 bg-[url('assets/page_20.jpg')] bg-cover bg-center opacity-10"></div>
-      <div class="relative max-w-6xl mx-auto px-6">
-        <p class="text-sm uppercase tracking-[0.25em] text-[#d4af37]/90 mb-3">Contactos</p>
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Entre em contacto connosco</h1>
-        <p class="text-gray-200 max-w-3xl">
-          A nossa equipa está disponível para esclarecer dúvidas, agendar visitas e fornecer mais informações sobre o empreendimento.
-        </p>
+  <!-- HERO -->
+  <section class="relative overflow-hidden py-16">
+    <div class="absolute inset-0 bg-[url('assets/page_20.jpg')] bg-cover bg-center opacity-10"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
+    <div class="relative max-w-6xl mx-auto px-6">
+      <p class="text-xs uppercase tracking-[0.35em] text-[#d4af37]/90 mb-3">Contactos</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Fale com a nossa equipa</h1>
+      <p class="text-gray-200 max-w-2xl text-lg">
+        Esclareça dúvidas, peça uma proposta ou agende uma visita privada ao Tagus Garden Villas.
+      </p>
+    </div>
+  </section>
+
+  <!-- BLOCO PRINCIPAL -->
+  <main class="relative pb-16">
+    <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-[1.1fr_.7fr] gap-10">
+      <!-- FORM -->
+      <div class="bg-white/5 border border-white/5 rounded-2xl p-6 md:p-8 shadow-[0_0_60px_rgba(0,0,0,.25)]">
+        <h2 class="text-2xl font-semibold mb-1">Envie-nos uma mensagem</h2>
+        <p class="text-sm text-gray-400 mb-6">Respondemos o mais breve possível.</p>
+
+        <form id="contact-form" class="grid md:grid-cols-2 gap-4">
+          <div class="md:col-span-1">
+            <label for="nome" class="block text-sm mb-1">Nome *</label>
+            <input id="nome" name="nome" type="text" class="w-full rounded-md px-4 py-2.5 field" placeholder="O seu nome" required>
+          </div>
+          <div class="md:col-span-1">
+            <label for="email" class="block text-sm mb-1">Email *</label>
+            <input id="email" name="email" type="email" class="w-full rounded-md px-4 py-2.5 field" placeholder="exemplo@dominio.com" required>
+          </div>
+          <div class="md:col-span-2">
+            <label for="assunto" class="block text-sm mb-1">Assunto</label>
+            <input id="assunto" name="assunto" type="text" class="w-full rounded-md px-4 py-2.5 field" placeholder="Ex.: Agendamento de visita">
+          </div>
+          <div class="md:col-span-2">
+            <label for="telefone" class="block text-sm mb-1">Telefone</label>
+            <input id="telefone" name="telefone" type="text" class="w-full rounded-md px-4 py-2.5 field" placeholder="+351 ...">
+          </div>
+          <div class="md:col-span-2">
+            <label for="mensagem" class="block text-sm mb-1">Mensagem *</label>
+            <textarea id="mensagem" name="mensagem" rows="4" class="w-full rounded-md px-4 py-2.5 field" placeholder="Descreva o que pretende" required></textarea>
+          </div>
+          <div class="md:col-span-2 flex items-center justify-between gap-4 mt-1">
+            <p class="text-xs text-gray-400">Ao enviar aceita a nossa Política de Privacidade.</p>
+            <button type="submit" class="btn-gold px-6 py-3 rounded-md text-sm">Enviar mensagem</button>
+          </div>
+          <p id="form-status" class="md:col-span-2 text-xs mt-2"></p>
+        </form>
       </div>
-    </section>
 
-    <!-- Bloco de contacto -->
-    <section class="max-w-6xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-10">
-      <!-- Formulário -->
-      <form class="space-y-5">
-        <div>
-          <label for="nome" class="block text-sm font-medium mb-2 text-gray-300">Nome</label>
-          <input type="text" id="nome" name="nome" placeholder="O seu nome" class="w-full rounded-md px-4 py-3">
+      <!-- INFO -->
+      <div class="space-y-5">
+        <div class="bg-white/5 border border-white/5 rounded-2xl p-5">
+          <h3 class="text-lg font-semibold mb-3 text-[#d4af37]">Contactos diretos</h3>
+          <p class="text-sm text-gray-300">info@tagusgardenvillas.pt</p>
+          <p class="text-sm text-gray-300 mt-1">+351 912 345 678</p>
+          <p class="text-xs text-gray-500 mt-3">Seg a Sex — 09h00 às 18h00</p>
         </div>
-
-        <div>
-          <label for="email" class="block text-sm font-medium mb-2 text-gray-300">Email</label>
-          <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" class="w-full rounded-md px-4 py-3">
-        </div>
-
-        <div>
-          <label for="mensagem" class="block text-sm font-medium mb-2 text-gray-300">Mensagem</label>
-          <textarea id="mensagem" name="mensagem" rows="5" placeholder="A sua mensagem" class="w-full rounded-md px-4 py-3"></textarea>
-        </div>
-
-        <button type="submit" class="btn-gold px-6 py-3 rounded-md">Enviar mensagem</button>
-      </form>
-
-      <!-- Informações -->
-      <div class="space-y-6">
-        <div>
-          <h2 class="text-3xl font-semibold mb-4">Visite-nos</h2>
-          <p class="text-gray-300">
-            Tagus Garden Villas<br>
-            Moita, Setúbal — Portugal
+        <div class="bg-gradient-to-br from-[#d4af37]/20 via-[#d4af37]/5 to-transparent border border-[#d4af37]/30 rounded-2xl p-5">
+          <h3 class="text-lg font-semibold mb-2">Visite-nos</h3>
+          <p class="text-sm text-gray-200">
+            Tagus Garden Villas<br>Moita, Setúbal — Portugal
           </p>
         </div>
-        <div>
-          <h3 class="text-xl font-semibold text-[#d4af37] mb-2">Email</h3>
-          <p class="text-gray-300">info@tagusgardenvillas.pt</p>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold text-[#d4af37] mb-2">Telefone</h3>
-          <p class="text-gray-300">+351 912 345 678</p>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold text-[#d4af37] mb-2">Horário</h3>
-          <p class="text-gray-300">Segunda a Sexta — 09h00 às 18h00</p>
+        <div class="bg-white/5 border border-white/5 rounded-2xl p-5">
+          <h3 class="text-sm font-semibold mb-2">Outros canais</h3>
+          <p class="text-xs text-gray-400">Para parcerias, imprensa e eventos, utilize o mesmo formulário.</p>
         </div>
       </div>
-    </section>
+    </div>
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-slate-950 text-white text-center px-4 pt-7 pb-9">
-  <!-- topo -->
-  <div>
-    <p class="text-sm font-medium">© 2025 Tagus Garden Villas — Todos os direitos reservados.</p>
-    <p class="mt-1 text-sm">
-      <a href="https://www.tagusgardenvillas.pt" class="hover:opacity-70 transition">
-        www.tagusgardenvillas.pt
-      </a>
-    </p>
-  </div>
-
-  <!-- links legais -->
-  <div class="mt-5 flex flex-wrap gap-2 justify-center text-xs sm:text-[13px]">
-    <a href="/resolucao-alternativa-de-litigios.html" class="hover:opacity-70 transition">Resolução Alternativa de Litígios</a>
-    <span class="hidden sm:inline opacity-30">|</span>
-    <a href="/livro-de-reclamacoes.html" class="hover:opacity-70 transition">Livro de Reclamações online</a>
-    <span class="hidden sm:inline opacity-30">|</span>
-    <a href="/termos-e-condicoes.html" class="hover:opacity-70 transition">Termos e condições</a>
-    <span class="hidden sm:inline opacity-30">|</span>
-    <a href="/politica-de-privacidade.html" class="hover:opacity-70 transition">Política de Privacidade</a>
-    <span class="hidden sm:inline opacity-30">|</span>
-    <a href="/politica-de-cookies.html" class="hover:opacity-70 transition">Política de Cookies</a>
-    <span class="hidden sm:inline opacity-30">|</span>
-    <a href="/canal-de-denuncias.html" class="hover:opacity-70 transition">Canal de Denúncias</a>
-    <span class="hidden sm:inline opacity-30">|</span>
-    <a href="/gerir-dados.html" class="hover:opacity-70 transition">Gerir Dados</a>
-  </div>
-
-  <!-- créditos -->
-  <div class="mt-5 text-[11px] sm:text-xs opacity-70">
-    CRM e Sites Imobiliários por eGO Real Estate
-  </div>
-</footer>
-
+  <footer class="bg-slate-950 text-white text-center px-4 pt-7 pb-9 mt-6">
+    <div>
+      <p class="text-sm font-medium">© 2025 Tagus Garden Villas — Todos os direitos reservados.</p>
+      <p class="mt-1 text-sm">
+        <a href="https://www.tagusgardenvillas.pt" class="hover:opacity-70 transition">www.tagusgardenvillas.pt</a>
+      </p>
+    </div>
+    <div class="mt-5 flex flex-wrap gap-2 justify-center text-xs sm:text-[13px]">
+      <a href="/resolucao-alternativa-de-litigios.html" class="hover:opacity-70 transition">Resolução Alternativa de Litígios</a>
+      <span class="hidden sm:inline opacity-30">|</span>
+      <a href="/livro-de-reclamacoes.html" class="hover:opacity-70 transition">Livro de Reclamações online</a>
+      <span class="hidden sm:inline opacity-30">|</span>
+      <a href="/termos-e-condicoes.html" class="hover:opacity-70 transition">Termos e condições</a>
+      <span class="hidden sm:inline opacity-30">|</span>
+      <a href="/politica-de-privacidade.html" class="hover:opacity-70 transition">Política de Privacidade</a>
+      <span class="hidden sm:inline opacity-30">|</span>
+      <a href="/politica-de-cookies.html" class="hover:opacity-70 transition">Política de Cookies</a>
+      <span class="hidden sm:inline opacity-30">|</span>
+      <a href="/canal-de-denuncias.html" class="hover:opacity-70 transition">Canal de Denúncias</a>
+      <span class="hidden sm:inline opacity-30">|</span>
+      <a href="/gerir-dados.html" class="hover:opacity-70 transition">Gerir Dados</a>
+    </div>
+    <div class="mt-5 text-[11px] sm:text-xs opacity-70">
+      CRM e Sites Imobiliários por eGO Real Estate
+    </div>
+  </footer>
 
   <!-- JS do drawer -->
   <script>
@@ -207,7 +208,6 @@
       const btn = document.querySelector('.hamburger');
       const drawer = document.getElementById('mobile-drawer');
       const overlay = document.getElementById('drawer-overlay');
-
       if (!btn || !drawer) return;
 
       function openDrawer() {
@@ -243,5 +243,8 @@
     });
   })();
   </script>
+
+  <!-- Envio de email (ficheiro externo) -->
+  <script src="assets/email.js"></script>
 </body>
 </html>
