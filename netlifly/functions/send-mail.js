@@ -1,8 +1,7 @@
 // netlify/functions/send-mail.js
-import nodemailer from "nodemailer";
+const nodemailer = require("nodemailer");
 
-export const handler = async (event) => {
-  // só aceitamos POST
+exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
@@ -14,7 +13,6 @@ export const handler = async (event) => {
     const data = JSON.parse(event.body || "{}");
     const { nome, email, assunto, mensagem, telefone } = data;
 
-    // validação básica
     if (!nome || !email || !mensagem) {
       return {
         statusCode: 400,
@@ -22,21 +20,19 @@ export const handler = async (event) => {
       };
     }
 
-    // criar transporte SMTP (mailbox.pt)
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,          // ex: "mail4.mailbox.pt"
-      port: Number(process.env.SMTP_PORT),  // ex: 587
+      host: process.env.SMTP_HOST,          // mail4.mailbox.pt
+      port: Number(process.env.SMTP_PORT),  // 587
       secure: false,
       auth: {
-        user: process.env.SMTP_USER,        // "info@tagusgardenvillas.pt"
-        pass: process.env.SMTP_PASS,        // password dessa conta
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
       tls: {
         rejectUnauthorized: false,
       },
     });
 
-    // enviar email
     await transporter.sendMail({
       from: `"Site Tagus Garden Villas" <${process.env.SMTP_USER}>`,
       to: "info@tagusgardenvillas.pt",
@@ -59,7 +55,7 @@ ${mensagem}
           <p><strong>Telefone:</strong> ${telefone || "-"}</p>
           <p><strong>Mensagem:</strong><br>${(mensagem || "").replace(/\n/g, "<br>")}</p>
         </div>
-      `
+      `,
     });
 
     return {
@@ -67,7 +63,6 @@ ${mensagem}
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ success: true }),
     };
-
   } catch (err) {
     console.error("Erro ao enviar email:", err);
     return {
